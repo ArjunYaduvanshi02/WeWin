@@ -1,2 +1,5 @@
-Flask==2.3.2
-sqlite3
+
+
+flask
+gunicorn
+pysqlite3
