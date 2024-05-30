@@ -5,6 +5,10 @@
       <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet"><link rel="stylesheet" href="static/css/style_register.css">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+
+        .test1 {
+            visibility: hidden;
+                }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -103,7 +107,7 @@
     </table>
 </div>
     <form class="get_email" action="/get_email" method="post">
-        <span id="emailData"></span>
+        <div id="emailData" class="test1"></div>
         <input type="hidden" id="emailInput" required="required" name="email_fetch">
     </form>
     <script>
@@ -114,5 +118,7 @@
             document.querySelector('.get_email').submit();
         }
     </script>
+
+
 </body>
 </html>
