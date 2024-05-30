@@ -91,7 +91,7 @@ def Send():
     import smtplib
     send = "project.feedback.02@gmail.com"
     rec = "project.feedback.02@gmail.com"
-    pas = "pcsk qljb vfiq tdau"
+    pas = "yzay obwk fisz kpcj"
     message = f"Subject: {send_gmail}\n\nMR/MRS {send_user} messaged you: {send_mess}"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
@@ -109,16 +109,23 @@ def get_email():
     send_gmail="DONATION REQUEST"
     send = "project.feedback.02@gmail.com"
     rec = email
-    pas = "pcsk qljb vfiq tdau"
-    message = f"Subject: {send_gmail}\n\nThank you for registering for donation, We would like to inform you tht there is need for urgent stem cell donation.If you are interested in donation do contact us. Thanks and regards"
+    print(email,send)
+    pas = "yzay obwk fisz kpcj"
+    message = f"Subject: {send_gmail}\n\nThank you for registering for donation, We would like to inform you tht there is need for urgent stem cell donation.If you are interested in donation do contact us. Thanks and regards\n D visit us at https://wewin.onrender.com"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
     server.login(send, pas)
-    server.sendmail(send, rec, message)
+    server.sendmail(send,rec,message)
     conn = sqlite3.connect('registration.db')
     cursor = conn.cursor()
+
+    # Execute a query to retrieve data from the database
     cursor.execute('SELECT * FROM registration')
     data = cursor.fetchall()
+
+    # Close the database connection
     cursor.close()
     conn.close()
+
+    # Render the HTML template and pass the data to it
     return render_template('user_response.html', data=data)
